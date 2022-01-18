@@ -51,5 +51,5 @@ webscenario_delete()
         \"id\": 2}"
 }
 
-WEB=$($1);
+WEB=$(${WEB_ACTION});
 echo "$WEB"
