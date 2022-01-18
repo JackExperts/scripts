@@ -20,6 +20,21 @@ AUTH_TOKEN=$(authenticate)
 
 echo "$AUTH_TOKEN"
 
+webscenario_get()
+{
+    wget --no-check-certificate -O- -o /dev/null $API --header 'Content-Type: application/json' --post-data "{
+        \"jsonrpc\": \"2.0\",
+        \"method\": \"httptest.get\",
+        \"params\": {
+                \"hostids\": \"$WEB_HOST_ID\",
+                \"search\": {
+                    \"name\": \"$WEB_NAME\"
+                }
+            },
+        \"auth\": \"$AUTH_TOKEN\",
+        \"id\": 1}"
+}
+
 webscenario_create()
 {
     wget --no-check-certificate -O- -o /dev/null $API --header 'Content-Type: application/json' --post-data "{
@@ -43,6 +58,7 @@ webscenario_create()
 
 webscenario_delete()
 {
+    WEB_ID=$(webscenario_get | cut -d'"' -f10)
     wget --no-check-certificate -O- -o /dev/null $API --header 'Content-Type: application/json' --post-data "{
         \"jsonrpc\": \"2.0\",
         \"method\": \"httptest.delete\",
