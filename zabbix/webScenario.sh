@@ -53,7 +53,7 @@ webscenario_create()
         ]
     },
         \"auth\": \"$AUTH_TOKEN\",
-        \"id\": 2}"
+        \"id\": 3}"
 }
 
 webscenario_delete()
@@ -64,7 +64,7 @@ webscenario_delete()
         \"method\": \"httptest.delete\",
         \"params\": [\"$WEB_ID\"],
         \"auth\": \"$AUTH_TOKEN\",
-        \"id\": 2}"
+        \"id\": 4}"
 }
 
 WEB=$(${WEB_ACTION});
