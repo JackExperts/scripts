@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script para cadastrar hosts.
+# Script para deletar user.
 
 URL='http://192.168.15.136/zabbix/api_jsonrpc.php'
 HEADER='Content-Type:application/json'
